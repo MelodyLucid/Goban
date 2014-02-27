@@ -28,20 +28,6 @@ abstract class GridBoard extends Board {
   def apply(x: Int, y: Int, color: Stone): Board
 }
 
-class Goban(private val tiles: Seq[Seq[Tile]]) {
-  /**
-   * Splits the tiles in four, adds the tile in between, and then return the result.
-   */
-  def updateTiles(x: Int, y: Int, tile: Tile): Seq[Seq[Tile]] =
-    (tiles.take(y) :+ ((tiles(y).take(x) :+ tile) ++: tiles(y).drop(x + 1))) ++: tiles.drop(y + 1)
-
-  // XXX : GobanFactory with mutable buffer
-  def put(x: Int, y: Int, tile: Tile): Goban = {
-    if (tiles(x)(y) != Empty) this
-    else this
-  }
-}
-
 class IntegratedBoard(private val tiles: Seq[Seq[Tile]]) extends GridBoard {
   val width = tiles size
   val height = tiles(0) size
