@@ -1,4 +1,7 @@
 .metadata/
+.settings/
+.worksheet/
+.cache
 .classpath
 .project
 .settings
